@@ -6,6 +6,14 @@ import com.qa.countries.Country;
 
 public interface CountryService {
 	
-	String
+	Country getById(int id);
+	
+	String nationalAnthem();
+	
+	Country makeCountry(Country country);
+	
+	Country updateCountry(int id, String name, String capital, int population);
+	
+	void delete(int id);
 
 }
