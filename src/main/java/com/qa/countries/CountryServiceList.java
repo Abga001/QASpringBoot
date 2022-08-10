@@ -3,13 +3,12 @@ package com.qa.countries;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.qa.countries.Country;
 
 @Service
-@Primary
+//@Primary
 public class CountryServiceList implements CountryService {
 
 	private List<Country> countries;
