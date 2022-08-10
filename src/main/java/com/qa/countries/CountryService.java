@@ -8,11 +8,12 @@ public interface CountryService {
 	
 	Country getById(int id);
 	
-	String nationalAnthem();
+	List<Country> getAllCountries();
+
 	
 	Country makeCountry(Country country);
 	
-	Country updateCountry(int id, String name, String capital, int population);
+	Country updateCountry(int id, String name, String capital, Integer population);
 	
 	void delete(int id);
 

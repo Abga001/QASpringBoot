@@ -25,10 +25,10 @@ public class CountryController {
 	//}
 	
 	
-	//@GetMapping("/getAll")
-	//public List<Country> getAllCountries(){
-		//return this.;
-	//}
+	@GetMapping("/getAll")
+	public List<Country> getAllCountries(){
+		return this.countries;
+	}
 	
 
 	@GetMapping("/get/{id}")
@@ -50,11 +50,6 @@ public class CountryController {
 	public void delete(@PathVariable int id) {	
 		System.out.println("ID: " + id);
 		
-	}
-	
-	@GetMapping("/anthem")
-	public String nationalAnthem() {
-		return "Stand up for the national anthem";
 	}
 	
 }
