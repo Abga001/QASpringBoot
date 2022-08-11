@@ -35,12 +35,12 @@ private ObjectMapper mapper;
 
 @Test
 void testCreate() throws Exception {
-	Country testCountry = new Country("Egypt", "Cairo", 30000000);
+	Country testCountry = new Country(1, "Egypt", "Cairo", 30000000);
 	RequestBuilder req = post("/createCountry").content(this.mapper.writeValueAsString(testCountry))
 			.contentType(MediaType.APPLICATION_JSON);
 	
 	ResultMatcher checkStatus = status().isCreated();
-	Country testSavedCountry = new Country("Egypt", "Cairo", 30000000);
+	Country testSavedCountry = new Country(1, "Egypt", "Cairo", 30000000);
 	ResultMatcher checkBody = content().json(this.mapper.writeValueAsString(testSavedCountry));
 	
 	this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
@@ -49,16 +49,16 @@ void testCreate() throws Exception {
 @Test
 void testCreateButHardToRead() throws Exception {
 	this.mvc.perform(
-			post("/createCountry").content(this.mapper.writeValueAsString(new Country("Egypt", "Cairo", 30000000)))
+			post("/createCountry").content(this.mapper.writeValueAsString(new Country(1, "Egypt", "Cairo", 30000000)))
 					.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isCreated())
-			.andExpect(content().json(this.mapper.writeValueAsString(new Country("Egypt", "Cairo", 30000000))));
+			.andExpect(content().json(this.mapper.writeValueAsString(new Country(1, "Egypt", "Cairo", 30000000))));
 }
 
 @Test
 void testGet() throws Exception {
-	List<Country> countries = List.of(new Country("Egypt", "Cairo", 30000000),
-			new Country("Egypt", "Cairo", 30000000));
+	List<Country> countries = List.of(new Country(1, "Egypt", "Cairo", 30000000),
+			new Country(1, "Egypt", "Cairo", 30000000));
 
 	ResultMatcher checkBody = content().json(this.mapper.writeValueAsString(countries));
 	this.mvc.perform(get("/getAll")).andExpect(status().isOk()).andExpect(checkBody);
@@ -67,7 +67,7 @@ void testGet() throws Exception {
 @Test
 void testGetById() throws Exception {
 	ResultMatcher checkBody = content()
-			.json(this.mapper.writeValueAsString(new Country("Egypt", "Cairo", 30000000)));
+			.json(this.mapper.writeValueAsString(new Country(1, "Egypt", "Cairo", 30000000)));
 
 	this.mvc.perform(get("/get/1")).andExpect(status().isOk()).andExpect(checkBody);
 }

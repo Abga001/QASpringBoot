@@ -18,8 +18,9 @@ public class Country {
 	
 	private Integer population;
 	
-	public Country(String name, String capital, Integer population) {
+	public Country(Integer id, String name, String capital, Integer population) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.capital = capital;
 		this.population = population;

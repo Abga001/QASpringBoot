@@ -9,7 +9,6 @@ public interface CountryService {
 	Country getById(int id);
 	
 	List<Country> getAllCountries();
-
 	
 	Country makeCountry(Country country);
 	
