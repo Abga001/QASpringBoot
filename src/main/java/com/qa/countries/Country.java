@@ -1,7 +1,15 @@
 package com.qa.countries;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Country {
 	
+	@Id // Primary Key
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // AI (optional)
 	private Integer id;
 
 	private String name;

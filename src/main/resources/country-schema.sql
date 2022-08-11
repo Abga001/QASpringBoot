@@ -1,4 +1,4 @@
-INSERT INTO 'biscuit'
+INSERT INTO 'country'
 ('id', 'name', 'capital', 'population')
     VALUES
 (default, 'Germany', 'Berlin', 55000000),
